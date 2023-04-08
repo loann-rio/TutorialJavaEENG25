@@ -18,12 +18,12 @@ public class ALittleBitMore {
 		// N should be odd
 		for (int i = 1; i<=N; i++)
 		{
-			for (int j=0; j < (int) (N-(i*2-1))/2; j++)
+			for (int j=0; j < N-i; j++)
 			{
 				System.out.print(" ");
 			}
 			
-			for (int j = 0; j<i; j++)
+			for (int j = 0; j<(i*2-1); j++)
 			{
 				System.out.print("*");
 			}

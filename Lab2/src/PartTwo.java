@@ -20,7 +20,13 @@ public class PartTwo {
 		// as an array is a pointer, we cannot display it directly using println, we need to print it
 		// using the toString function
 	
-		System.out.println(array.toString());
+		System.out.print("[ ");
+		for (int e: array)
+		{
+			System.out.print(e + " , ");
+		}
+		System.out.print(" ]");
+		System.out.print("\n");
 	}
 	
 	public int index(int[] array, int obj) {

@@ -20,21 +20,29 @@ public class PartThree {
 			System.out.println("do you choose to take one of them, both, or quit?  [enter the result or -1 to quit]");
 			
 			int R = keyboard.readInt();
-				
+			
 			if (R == -1) {
 				return;
 			}
 			
-			playerCapital -=  R;
-			
-			if (playerCapital < 0) {
-				System.out.println("your capital went under 0, start again\nyour capital is 30");
-				playerCapital = 30;
+			if ((R != dice1) && (R != dice2) && (R != dice1+dice2))
+			{
+				// if the player played a number that was not an option:
+				System.out.println("number non valid, please try again");
 			}
+			else
+			{
+				playerCapital -=  R;
 			
-			if (playerCapital == 0) {
-				System.out.println("you win");
-				return;
+				if (playerCapital < 0) {
+					System.out.println("your capital went under 0, start again\nyour capital is 30");
+					playerCapital = 30;
+				}
+				
+				if (playerCapital == 0) {
+					System.out.println("you win");
+					return;
+				}
 			}
 		}
 	}
@@ -61,15 +69,15 @@ public class PartThree {
 			// read player input
 			int R = keyboard.readInt();
 			
-			if ((R != -1) && (R != dice1) && (R != dice2) && (R != dice1+dice2))
+			// quit
+			if (R == -1) {
+				return;
+			}
+			
+			if ((R != dice1) && (R != dice2) && (R != dice1+dice2))
 			{
 				// if the player played a number that was not an option:
 				System.out.println("player " + (turn+1) + "tried to cheat, player" +  (turn+1)%2+1 + " win");
-				return;
-			}
-				
-			//	quit
-			if (R == -1) {
 				return;
 			}
 			
